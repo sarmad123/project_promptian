@@ -4,14 +4,16 @@ import React, { Suspense, useEffect, useState } from 'react';
 import Loading from '@app/loading';
 const PromptCard = React.lazy(() => import('@components/PromptCard'));
 
-const PromptCardList = ({ data, handleTagClick }) => {
+const PromptCardList = ({ data, handleTagClick } : any) => {
     return (
         <div className="mt-16 prompt_layout">
-            {data.map((post) => (
+            {data.map((post : any) => (
                 <Suspense key={post._id} fallback={<Loading />}>
                     <PromptCard
                         post={post}
                         handleTagClick={handleTagClick}
+                        handleEdit={() => {}}
+                        handleDelete={() => {}}
                     />
                 </Suspense>
             ))}
@@ -23,7 +25,7 @@ const Feed = () => {
     const [posts, setPosts] = useState([]);
     const [searchText, setSearchText] = useState('');
 
-    const handleSearchChange = async (searchString) => {
+    const handleSearchChange = async (searchString : string) => {
         setSearchText(searchString);
         if (searchString.length > 2) {
             const res = await fetch(`/api/search?searchString=${searchString}`);
@@ -32,7 +34,7 @@ const Feed = () => {
         }
     };
 
-    const handleTagClick = (e) => {
+    const handleTagClick = (e: string) => {
         handleSearchChange(e);
     };
 

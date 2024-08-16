@@ -21,7 +21,7 @@ const SignIn = () => {
     const toastConfig   = TOAST_CONFIGURATION
     useEffect(() => {
         const setUpProviders = async () => {
-            const  response = await  getProviders();
+            const  response : any = await  getProviders();
             setProviders(response)
         }
         setUpProviders()
@@ -69,6 +69,9 @@ const SignIn = () => {
             data={formik}
             providers={providers}
             providerSignIn={signIn}
+            setData={() =>{}}
+            handleSubmit={() => {}}
+            setFieldValue={() => {}}
         />
     );
 };

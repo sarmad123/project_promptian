@@ -4,20 +4,19 @@ import {FaCloudUploadAlt, FaEye, FaEyeSlash} from 'react-icons/fa';
 import { TiDelete } from "react-icons/ti";
 import Image from "next/image";
 
-const Forms = ({type, data, setData, submitting, handleSubmit,togglePasswordVisibility, showPassword, providers, providerSignIn, setFieldValue}) => {
+const Forms = ({type, data, setData, submitting, handleSubmit,togglePasswordVisibility, showPassword, providers, providerSignIn, setFieldValue} : any) => {
     const [imagePreview, setImagePreview] = useState('');
-    const handleImageChange = (event) => {
-        const file = event.currentTarget?.files[0];
-        if (file) {
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event.currentTarget.files;
+        if (files && files[0]) {
+            const file = files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-                const base64String = reader.result;
+                const base64String = reader.result as string;
 
-                if (typeof base64String === 'string') {
-                    setFieldValue('image', base64String);
-                    setFieldValue('imageFile', file);
-                    setImagePreview(base64String);
-                }
+                setFieldValue('image', base64String);
+                setFieldValue('imageFile', file);
+                setImagePreview(base64String);
             };
             reader.readAsDataURL(file); // Convert image to base64
         }

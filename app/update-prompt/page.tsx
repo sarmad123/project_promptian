@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 import {useRouter, useSearchParams} from 'next/navigation';
 import Forms from "@components/Forms";
 
@@ -26,7 +26,7 @@ const EditPrompt = () => {
         }
         getPromptDetails();
     }, [promptId]);
-    const updatePrompt = async(e) =>{
+    const updatePrompt = async(e : FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         setSubmitting(true);
         if(!promptId) return alert("Prompt ID not found");
@@ -51,10 +51,15 @@ const EditPrompt = () => {
     return (
         <Forms
             type="Edit"
-            post={post}
-            setPost={setPost}
+            data={post}
+            setData={setPost}
             submitting={sumbitting}
             handleSubmit={updatePrompt}
+            togglePasswordVisibility={() => {}}
+            showPassword={false}
+            providers={[]}
+            providerSignIn={() => {}}
+            setFieldValue={() => {}}
         />
     );
 };

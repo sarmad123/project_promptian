@@ -3,20 +3,22 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import ToastProvider from "@components/ToastProvider";
 import { LoadingProvider } from './loadingProvider';
-import React from "react";
-import { Session } from 'next-auth'; // Adjust based on your session type
+import React, {ReactNode} from "react";
 
 export const metadata = {
     title: 'Promptian',
     description: 'Discover & Share The Best Prompts',
 };
+interface RootLayoutProps {
+    children?: ReactNode;
+    session: never;
+}
 
-const RootLayout = ({ children }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, session }) => {
     return (
         <html lang="en">
-        <Provider>
+        <Provider session={session}>
             <body>
-
             <div className="main">
                 <div className="gradient" />
             </div>

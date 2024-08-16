@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter } from 'next/navigation';
 
-const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete } : any) => {
     const [copied, setCopied] = useState("");
     const pathName = usePathname();
     const router = useRouter();
@@ -17,7 +17,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         setTimeout(() => setCopied(""), 3000);
     };
 
-    const navigateToProfile = (user) => {
+    const navigateToProfile = (user : any) => {
         if (session?.user.id !== user._id) {
             router.push(`/profile/${user._id}?name=${user.username}`);
         } else {

@@ -1,8 +1,12 @@
 "use client";
 import React, {useEffect, useState} from 'react';
-import {useRouter, useSearchParams} from "next/navigation";
+import { useSearchParams} from "next/navigation";
 import Profile from "@components/Profile"
-const OtherProfile = ({params}) => {
+
+interface OtherProfileProps  {
+    params: any
+}
+const OtherProfile : React.FC<OtherProfileProps> = ({params}) => {
     const [posts, setPosts] = useState([])
     const searchParams = useSearchParams();
     const userName = searchParams.get('name')
@@ -24,6 +28,8 @@ const OtherProfile = ({params}) => {
             name={userName}
             desc={desc}
             data={posts}
+            handleEdit={() => {}}
+            handleDelete={() => {}}
         />
     );
 };

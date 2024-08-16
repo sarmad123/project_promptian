@@ -37,8 +37,12 @@ const SignUp = () => {
             image: Yup.mixed().required('An image is required'),
             imageFile: Yup.mixed()
                 .required('An image file is required')
-                .test('fileSize', 'File too large', value => value && value?.size <= 1024 * 1024)
-                .test('fileType', 'Unsupported file format', value => value && ['image/jpeg', 'image/png'].includes(value?.type)),
+                .test('fileSize', 'File too large', value => {
+                    return value && (value as File).size <= 1024 * 1024; // Assert `value` as File
+                })
+                .test('fileType', 'Unsupported file format', value => {
+                    return value && ['image/jpeg', 'image/png'].includes((value as File).type); // Assert `value` as File
+                }),
         }),
         onSubmit: async (values) => {
              setLoading(true)
@@ -77,6 +81,11 @@ const SignUp = () => {
             togglePasswordVisibility={togglePasswordVisibility}
             data={formik}
             setFieldValue={formik.setFieldValue}
+            setData={() =>{}}
+            handleSubmit={() => {}}
+            providers={() => {}}
+            providerSignIn={() => {}}
+
         />
     );
 };
