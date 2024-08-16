@@ -12,6 +12,7 @@
     "@emotion/react": "^11.13.0",
     "@mui/material": "^5.16.7",
     "bcrypt": "^5.1.1",
+    "daisyui": "^4.12.10",
     "express-validator": "^7.1.0",
     "formik": "^2.4.6",
     "jsonwebtoken": "^9.0.2",
