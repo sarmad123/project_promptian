@@ -1,5 +1,5 @@
 'use client';
-import React, {useLayoutEffect, useState} from 'react';
+import React, {FormEvent, useLayoutEffect, useState} from 'react';
 import {useSession} from 'next-auth/react';
 import {redirect, useRouter} from 'next/navigation';
 import Forms from "@components/Forms";
@@ -14,15 +14,16 @@ const CreatePrompt = () => {
     const {data: session} =  useSession();
     const router =  useRouter();
 
-    const createPrompt = async(e) =>{
+    const createPrompt = async(e : FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         setSubmitting(true);
+
         try{
             const res = await fetch('/api/prompt/new',{
                 method: 'POST',
                 body : JSON.stringify({
                     prompt: post.prompt,
-                    userId: session?.user.id,
+                    userId: session?.user?.id,
                     tag: post.tag
 
                 })
@@ -44,6 +45,11 @@ const CreatePrompt = () => {
             setData={setPost}
             submitting={sumbitting}
             handleSubmit={createPrompt}
+            togglePasswordVisibility={() => {}}
+            showPassword={false}
+            providers={[]}
+            providerSignIn={() => {}}
+            setFieldValue={() => {}}
 
 
         />

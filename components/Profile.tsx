@@ -11,7 +11,7 @@ const Profile = ({name, desc, data, handleEdit, handleDelete}) => {
             <p className='desc text-left'>{desc}</p>
             <div className='mt-10 prompt_layout'>
                 {data.map((post) => (
-                    <Suspense fallback={<Loading/>}>
+                    <Suspense fallback={<Loading/> } key={post._id}>
                         <PromptCard
                             key={post._id}
                             post={post}

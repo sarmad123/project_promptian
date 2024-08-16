@@ -2,7 +2,9 @@ import '@styles/global.css';
 import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 import ToastProvider from "@components/ToastProvider";
-import { LoadingProvider } from './loadingProvider.tsx';
+import { LoadingProvider } from './loadingProvider';
+import React from "react";
+import { Session } from 'next-auth'; // Adjust based on your session type
 
 export const metadata = {
     title: 'Promptian',

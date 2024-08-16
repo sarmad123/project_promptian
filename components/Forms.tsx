@@ -328,13 +328,16 @@ const Forms = ({type, data, setData, submitting, handleSubmit,togglePasswordVisi
                         )}
                         {type === 'Sign In' && (
                             <div className="w-full text-center mb-2">
-                                <p className='font-satoshi' style={{color: '#A0AEC0', fontSize: '16px'}}>Don't
-                                    have an
-                                    account?
-                                    <Link href="/sign-up" className='text-orange-600 font-satoshi' style={{
-                                        fontSize: '16px',
-                                        textDecoration: "none"
-                                    }}>
+                                <p className="font-satoshi" style={{color: "#A0AEC0", fontSize: "16px"}}>
+                                    Don&apos;t have an account?
+                                    <Link
+                                        href="/sign-up"
+                                        className="text-orange-600 font-satoshi"
+                                        style={{
+                                            fontSize: "16px",
+                                            textDecoration: "none",
+                                        }}
+                                    >
                                         &nbsp;Sign Up
                                     </Link>
                                 </p>
