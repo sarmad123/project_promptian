@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Link from "next/link";
 import {FaCloudUploadAlt, FaEye, FaEyeSlash} from 'react-icons/fa';
 import { TiDelete } from "react-icons/ti";
-import Image from "next/Image";
+import Image from "next/image";
 
 const Forms = ({type, data, setData, submitting, handleSubmit,togglePasswordVisibility, showPassword, providers, providerSignIn, setFieldValue}) => {
     const [imagePreview, setImagePreview] = useState('');

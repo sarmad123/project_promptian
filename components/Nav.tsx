@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
 import Link from 'next/link'
-import Image from 'next/Image'
+import Image from 'next/image'
 import {useState} from 'react'
 import {signOut, useSession} from "next-auth/react"
 import {useRouter} from "next/navigation";
-import {providers} from "@node_modules/next-auth/core/routes";
 
 
 const Nav = () => {
